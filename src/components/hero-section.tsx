@@ -101,9 +101,19 @@ function HeroArtwork() {
     <div aria-hidden="true" className="hero-art pointer-events-none absolute left-1/2 top-0 z-[1] h-[1024px] w-[1440px] -translate-x-1/2 max-[1100px]:bottom-0 max-[1100px]:left-0 max-[1100px]:h-auto max-[1100px]:w-full max-[1100px]:translate-x-0">
       <div className="hero-orb absolute rounded-full bg-[#d4fb20]" />
       <Image alt="" className="hero-photo absolute object-cover" height={541} priority src={asset("hero-photo.png")} width={578} />
-      <MaskedHeroAsset className="ornament ornament-left" color="lime" image="ornament-photo-1.png" mask="ornament-mask-1.png" />
-      <MaskedHeroAsset   className="ornament ornament-right rotate-189" color="white" image="ornament-photo-2.png" mask="ornament-mask-2.png" />
-      <MaskedHeroAsset className="ornament ornament-small" color="white" image="ornament-photo-2.png" mask="ornament-mask-3.png" />
+      <MaskedHeroAsset
+  className="ornament ornament-left "
+  color="lime"
+  image="ornament-photo-2.png"
+  mask="ornament-mask-2.png"
+/>
+    <MaskedHeroAsset
+  className="ornament ornament-right "
+  color="white"
+  image="ornament-photo-1.png"
+  mask="ornament-mask-1.png"
+/>
+      <MaskedHeroAsset className="ornament ornament-small -scale-x-100" color="white" image="ornament-photo-2.png" mask="ornament-mask-3.png" />
       <MaskedHeroAsset className="cone cone-one" color="lime" image="cone-2.png" mask="cone-mask-2.png" />
       <MaskedHeroAsset className="cone cone-two" color="white" image="cone-1.png" mask="cone-mask-1.png" />
       <MaskedHeroAsset className="cone cone-three" color="white" image="cone-3.png" mask="cone-mask-3.png" />
