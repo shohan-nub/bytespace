@@ -10,7 +10,7 @@ import { TestimonialsSection } from "@/components/testimonials-section";
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-white">
       <HeroSection />
       <PartnerLogos />
       <IntroHeading />

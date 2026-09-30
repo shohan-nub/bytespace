@@ -35,9 +35,9 @@ function StudentAvatars() {
 
 export function CourseCard({ course }: { course: Course }) {
   return (
-    <article className="group relative h-[384px] min-w-0 overflow-hidden rounded-[24px] border border-[#ced0d3] bg-white motion-safe:transition-transform motion-safe:duration-200 motion-safe:hover:-translate-y-1">
+    <article className="group relative h-[384px] min-w-0 overflow-hidden rounded-[24px] border border-[#ced0d3] bg-white motion-safe:transition-transform motion-safe:duration-200 motion-safe:hover:-translate-y-0.5">
       <div className="absolute left-[15px] right-[15px] top-[15px] h-[195px] overflow-hidden rounded-[12px]">
-        <Image alt="" className="h-full w-full object-cover" height={195} src={course.image} width={341} />
+        <Image alt="" className="h-full w-full object-cover" fill sizes="(max-width: 639px) calc(100vw - 70px), (max-width: 767px) calc(100vw - 94px), (max-width: 1279px) calc((100vw - 164px) / 2), 343px" src={course.image} />
         <div className="absolute inset-x-[13px] bottom-[13px] flex flex-wrap items-center gap-2 lg:flex-nowrap lg:gap-3">
           {["17 Lessons", "2 hours 16 mins", "59 Comments"].map((badge) => (
             <span className="shrink-0 rounded-full bg-[rgba(246,246,246,0.6)] px-3 py-[6px] text-center text-[12px] font-medium leading-[14px] text-[#4f4f4f] backdrop-blur-[4px]" key={badge}>

@@ -6,7 +6,7 @@ const tabRows = [
 
 export function CourseTabs() {
   return (
-    <nav aria-label="Course topics" className="flex flex-col items-center gap-[21px]">
+    <nav aria-label="Course topics" className="mx-auto flex w-[calc(100%-32px)] max-w-[1086px] flex-col items-center gap-[21px]">
       {tabRows.map((row, rowIndex) => (
         <ul
           className={`flex w-full flex-wrap items-center justify-center gap-4 ${rowIndex === 0 ? "max-w-[1086px]" : rowIndex === 1 ? "max-w-[952px]" : "max-w-[622px]"}`}
@@ -26,7 +26,7 @@ export function CourseTabs() {
             );
           })}
           {rowIndex === 2 && (
-            <li className="inline-flex min-h-[43px] items-center px-1 text-[16px] font-medium leading-[19px] text-[#003be2]">
+            <li className="inline-flex min-h-[43px] items-center text-[16px] font-medium leading-[19px] text-[#003be2]">
               + More
             </li>
           )}

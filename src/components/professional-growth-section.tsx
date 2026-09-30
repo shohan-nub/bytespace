@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import { CourseCard } from "@/components/course-card";
 import { GrowthBenefits } from "@/components/growth-benefits";
 import { GrowthMetric } from "@/components/growth-metric";
+import { useScrollReveal } from "@/components/use-scroll-reveal";
 
 const metricItems = [
   { value: "12K", label: "Students" },
@@ -23,8 +26,8 @@ function ProgressCard() {
 
 function GrowthCoursePreview() {
   return (
-    <div className="relative aspect-[621/552] w-full max-w-[621px] shrink-0">
-      <div className="absolute left-0 top-0 h-[552px] w-[621px] origin-top-left scale-[0.45] min-[360px]:scale-[0.52] min-[400px]:scale-[0.58] min-[480px]:scale-[0.71] min-[560px]:scale-[0.84] min-[600px]:scale-[0.9] min-[620px]:scale-[0.93] min-[660px]:scale-[0.96] min-[680px]:scale-100">
+    <div className="@container/growth-art relative aspect-[621/552] w-full max-w-[621px] shrink-0">
+      <div className="absolute left-0 top-0 h-[552px] w-[621px] origin-top-left [scale:clamp(0.45,calc(100cqw/621px),1)]">
       <div className="absolute left-0 top-0 z-10 w-[60.06%]">
         <CourseCard course={{ title: "Learn Figma from Basic", image: "/figma/courses/course-figma.png" }} />
       </div>
@@ -92,8 +95,8 @@ function HappyStudentsCard() {
 
 function CreatorDashboardArtwork() {
   return (
-    <div className="relative aspect-[541/596] w-full max-w-[541px] shrink-0">
-      <div className="absolute left-0 top-0 h-[596px] w-[541px] origin-top-left scale-[0.52] min-[330px]:scale-[0.57] min-[350px]:scale-[0.58] min-[400px]:scale-[0.66] min-[480px]:scale-[0.81] min-[560px]:scale-[0.96] min-[600px]:scale-100">
+    <div className="@container/growth-dashboard relative aspect-[541/596] w-full max-w-[541px] shrink-0">
+      <div className="absolute left-0 top-0 h-[596px] w-[541px] origin-top-left [scale:clamp(0.52,calc(100cqw/541px),1)]">
       <RevenueCard />
       <YearToDateCard />
       <Image alt="Creator holding a tablet while wearing a headset" className="absolute left-[5.18%] top-0 z-20 h-full w-[80.41%] object-contain drop-shadow-[28px_35px_26px_rgba(0,0,0,0.16)]" height={596} src="/figma/professional-growth/growth-creator.png" width={435} />
@@ -121,13 +124,14 @@ function GrowthBackdrop() {
 }
 
 export function ProfessionalGrowthSection() {
+  const revealRef = useScrollReveal<HTMLDivElement>();
   return (
-    <section aria-labelledby="growth-heading" className="motion-safe:animate-fade-up relative mt-20 w-full overflow-hidden bg-[#fafafa] py-20 lg:py-[120px]">
+    <section aria-labelledby="growth-heading" className="relative mt-20 w-full overflow-hidden bg-[#fafafa] py-20 lg:py-[120px]">
       <GrowthBackdrop />
-      <div className="relative z-10 mx-auto flex w-[calc(100%-40px)] max-w-[1200px] flex-col gap-16 sm:w-[calc(100%-64px)] min-[1340px]:gap-[72px]">
+      <div className="relative z-10 mx-auto flex w-[calc(100%-40px)] max-w-[1200px] flex-col gap-16 sm:w-[calc(100%-64px)] min-[1340px]:gap-[72px]" ref={revealRef}>
         <div className="grid items-center gap-12 min-[1340px]:w-[min(1258px,calc(100vw-48px))] min-[1340px]:grid-cols-[minmax(0,574fr)_minmax(0,621fr)] min-[1340px]:gap-[63px]">
           <div className="flex flex-col gap-8 sm:gap-10">
-            <h2 className="font-poppins max-w-[577px] text-[clamp(34px,3.06vw,44px)] font-semibold leading-[1.2] tracking-[-0.44px] text-[#242528]" id="growth-heading">
+            <h2 className="font-poppins max-w-[577px] text-[clamp(34px,3.06vw,44px)] font-semibold leading-[1.2] tracking-[-0.44px] text-[#242528] xl:text-[44px]" id="growth-heading">
               Your Path to Professional Growth Starts Here!
             </h2>
             <p className="max-w-[477px] text-[18px] leading-[1.6] text-[#4b4c53]">
@@ -143,7 +147,7 @@ export function ProfessionalGrowthSection() {
         <div className="grid items-center gap-12 min-[1340px]:grid-cols-[541px_580px] min-[1340px]:gap-[79px]">
           <CreatorDashboardArtwork />
           <div className="flex flex-col gap-8 sm:gap-10">
-            <h2 className="font-poppins max-w-[391px] text-[clamp(34px,3.06vw,44px)] font-semibold leading-[1.2] tracking-[-0.44px] text-[#242528]">
+            <h2 className="font-poppins max-w-[391px] text-[clamp(34px,3.06vw,44px)] font-semibold leading-[1.2] tracking-[-0.44px] text-[#242528] xl:text-[44px]">
               Create &amp; Manage Courses Easily.
             </h2>
             <p className="max-w-[574px] text-[18px] leading-[1.6] text-[#4b4c53]">

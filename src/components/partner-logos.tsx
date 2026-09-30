@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const partnerLogos = [
   { src: "/figma/partners/partner-logo-1.svg", width: 167, height: 41 },
   { src: "/figma/partners/partner-logo-2.svg", width: 168, height: 41 },
@@ -17,7 +15,7 @@ export function PartnerLogos() {
             className={`col-span-2 flex justify-center md:block ${index === 3 ? "col-start-2" : ""} ${index === 4 ? "col-start-4" : ""}`}
             key={logo.src}
           >
-            <Image
+            <img
               alt="Logoipsum partner"
               className="h-auto w-full max-w-[167px] motion-safe:transition-transform motion-safe:duration-200 motion-safe:ease-out motion-safe:hover:scale-[1.025] md:w-[clamp(112px,13vw,167px)] xl:w-auto"
               height={logo.height}

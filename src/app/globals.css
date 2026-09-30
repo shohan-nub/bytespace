@@ -3,8 +3,8 @@
 
 :root {
   color-scheme: light;
-  --font-satoshi: "Satoshi", Arial, sans-serif;
-  --font-clash: "Clash Display", "Satoshi", sans-serif;
+  --font-satoshi: var(--font-satoshi-family, "Satoshi"), Arial, sans-serif;
+  --font-clash: var(--font-clash-family, "Clash Display"), var(--font-satoshi), sans-serif;
 }
 
 @theme inline {
@@ -16,7 +16,7 @@
 html, body { min-height: 100%; }
 body {
   margin: 0;
-  background: #003be2;
+  background: #ffffff;
   color: #242528;
   font-family: var(--font-satoshi);
 }
@@ -60,12 +60,11 @@ a { color: inherit; text-decoration: none; }
 .course-category-position { position: absolute; z-index: 5; top: 639px; left: calc(50% - 316px); }
 .progress-card { width: 232px; }
 .students-card { width: 258px; }
-.ornament { z-index: 2; filter: brightness(1.6) saturate(0); }
-.ornament-left { filter: brightness(0) saturate(100%) invert(83%) sepia(98%) saturate(608%) hue-rotate(31deg) brightness(105%) contrast(103%); }
+.ornament { z-index: 2; }
 .ornament-left { left: -118px; top: 221px; width: 385px; height: 385px; }
 .ornament-right { left: calc(50% + 407px); top: 672px; width: 330px; height: 330px; }
-.cone { z-index: 2; filter: brightness(1.6) saturate(0); }
-.cone-one { filter: brightness(0) saturate(100%) invert(83%) sepia(98%) saturate(608%) hue-rotate(31deg) brightness(105%) contrast(103%); }
+.ornament-small { left: 183px; top: 477px; width: 175px; height: 175px; }
+.cone { z-index: 2; }
 .cone-one { left: calc(50% + 511px); top: 221px; width: 370px; height: 370px; }
 .cone-two { left: 18px; top: 682px; width: 342px; height: 342px; }
 .cone-three { left: calc(50% + 386px); top: 464px; width: 188px; height: 188px; }
@@ -75,6 +74,23 @@ a { color: inherit; text-decoration: none; }
 .mobile-menu summary::-webkit-details-marker { display: none; }
 .mobile-menu summary span { display: block; width: 22px; height: 2px; margin: 4px; border-radius: 2px; background: #f5f5f6; }
 .mobile-menu nav { position: absolute; top: 58px; right: 0; display: grid; min-width: 170px; gap: 16px; padding: 18px; border: 1px solid rgba(255,255,255,.2); border-radius: 12px; background: #003be2; box-shadow: 0 12px 30px rgba(0,0,0,.2); }
+
+[data-scroll-reveal="pending"] {
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+}
+[data-scroll-reveal="visible"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1), transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-scroll-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 
 @media (max-width: 767px) {
   .site-header { height: 82px; }
@@ -100,6 +116,7 @@ a { color: inherit; text-decoration: none; }
   .course-category-position { top: 656px; left: 14px; transform: scale(.8); transform-origin: top left; }
   .ornament-left { top: 500px; left: -220px; width: 260px; height: 260px; }
   .ornament-right { top: 690px; left: auto; right: -200px; width: 240px; height: 240px; }
+  .ornament-small { top: 460px; left: calc(50% - 145px); width: 100px; height: 100px; }
   .cone-one { top: 480px; left: auto; right: -220px; width: 260px; height: 260px; }
   .cone-two { top: 690px; left: -195px; width: 240px; height: 240px; }
   .cone-three { display: none; }
@@ -113,13 +130,6 @@ a { color: inherit; text-decoration: none; }
   .hero-description { white-space: normal; }
   .progress-position { left: calc(50% + 110px); }
   .students-position { left: calc(50% - 365px); }
+  .ornament-small { top: 490px; left: 25vw; width: clamp(96px, 12.2vw, 135px); height: clamp(96px, 12.2vw, 135px); }
 }
 
-@theme inline {
-  --animate-fade-up: fade-up 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
-
-  @keyframes fade-up {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-}

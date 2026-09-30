@@ -1,4 +1,7 @@
+"use client";
+
 import { CategoryCard, type Category } from "@/components/category-card";
+import { useScrollReveal } from "@/components/use-scroll-reveal";
 
 const categories: Category[] = [
   { name: "Design", icon: "/figma/categories/category-design.svg" },
@@ -10,8 +13,9 @@ const categories: Category[] = [
 ];
 
 export function CategoriesSection() {
+  const revealRef = useScrollReveal<HTMLElement>();
   return (
-    <section aria-labelledby="categories-heading" className="motion-safe:animate-fade-up mt-8 w-full pb-10">
+    <section aria-labelledby="categories-heading" className="mt-8 w-full pb-10" ref={revealRef}>
       <div className="mx-auto flex w-[min(917px,calc(100%-48px))] flex-col items-center gap-4 text-center">
         <h2 className="font-poppins w-full max-w-[792px] text-[clamp(30px,2.5vw,36px)] font-semibold leading-[1.2] tracking-[-0.36px] text-[#040819]" id="categories-heading">
           Explore Diverse Learning Paths at Bytespace

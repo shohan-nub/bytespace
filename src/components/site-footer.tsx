@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useScrollReveal } from "@/components/use-scroll-reveal";
 
 const footerColumns = [
   {
@@ -27,19 +30,18 @@ function FooterLink({ children }: { children: string }) {
 }
 
 export function SiteFooter() {
+  const revealRef = useScrollReveal<HTMLDivElement>();
   return (
     <footer className="relative bg-white">
-      <Image
+      <img
         alt=""
         aria-hidden="true"
         className="absolute left-0 top-0 h-px w-full object-cover"
-        height={1}
         src="/figma/footer/footer-top-rule.svg"
-        width={1440}
       />
-      <div className="mx-auto w-[calc(100%-48px)] max-w-[1200px] pb-10 pt-[56px] motion-safe:animate-fade-up min-[1100px]:h-[525px] min-[1100px]:pb-0 min-[1100px]:pt-[71px]">
-        <div className="grid gap-12 min-[1100px]:h-[234px] min-[1100px]:grid-cols-[528px_1fr] min-[1100px]:gap-[92px]">
-          <div>
+      <div className="mx-auto w-[calc(100%-48px)] max-w-[1200px] pb-10 pt-[56px] min-[1248px]:h-[525px] min-[1248px]:pb-0 min-[1248px]:pt-[71px]" ref={revealRef}>
+        <div className="grid gap-12 min-[1248px]:h-[234px] min-[1248px]:grid-cols-[528px_1fr] min-[1248px]:gap-[92px]">
+          <div className="w-full max-w-[528px]">
             <div className="flex items-center gap-4">
               <Image
                 alt=""
@@ -52,10 +54,10 @@ export function SiteFooter() {
                 ByteSpace
               </span>
             </div>
-            <p className="mt-4 max-w-[528px] text-[14px] leading-[1.6] text-[#4f4f4f]">
+            <p className="mt-4 max-w-[528px] text-[14px] leading-[1.6] text-[#242528]">
               Stay Up to date with our latest features and releases by joining our newsletter.
             </p>
-            <form className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6" action="#">
+            <form className="mt-[45px] flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6" action="#">
               <label className="sr-only" htmlFor="footer-email">Email address</label>
               <input
                 className="h-[52px] min-w-0 flex-1 rounded-full border border-[#ced0d3] bg-white px-6 text-[16px] text-[#242528] outline-none placeholder:text-[#7a7b7d] focus:border-[#003be2]"
@@ -71,15 +73,15 @@ export function SiteFooter() {
                 Search
               </button>
             </form>
-            <p className="mt-4 max-w-[504px] text-[12px] leading-[1.6] text-[#4f4f4f]">
+            <p className="mt-6 max-w-[504px] text-[12px] leading-[1.6] text-[#242528]">
               By subscribing, you agree to our <a className="underline" href="#privacy">Privacy Policy</a> and consent to receive updates from our company.
             </p>
           </div>
 
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 sm:gap-x-8 min-[1100px]:gap-x-10">
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 sm:gap-x-8 min-[1248px]:gap-x-10">
             {footerColumns.map((column, index) => (
-              <div className={index === 1 ? "pt-0 min-[1100px]:pt-12" : "pt-0 min-[1100px]:pt-0"} key={column.label}>
-                <h2 className="mb-6 text-[14px] font-semibold leading-[1.6] text-[#242528] min-[1100px]:sr-only">
+              <div className="pt-0 xl:pt-12" key={column.label}>
+                <h2 className="mb-6 text-[14px] font-semibold leading-[1.6] text-[#242528] xl:sr-only">
                   {column.label}
                 </h2>
                 <ul className="flex flex-col gap-4">
@@ -90,14 +92,12 @@ export function SiteFooter() {
           </nav>
         </div>
 
-        <div className="mt-12 min-[1100px]:mt-[59px]">
-          <Image
+        <div className="mt-12 xl:mt-[59px]">
+          <img
             alt=""
             aria-hidden="true"
             className="h-px w-full object-cover"
-            height={1}
             src="/figma/footer/footer-copy-divider.svg"
-            width={1200}
           />
           <div className="flex flex-col gap-4 pt-6 text-[12px] leading-[1.6] text-[#4f4f4f] sm:flex-row sm:items-center sm:justify-between">
             <p>@ 2023 ByteSpace. All rights reserved.</p>
